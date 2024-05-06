@@ -1,0 +1,117 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./Frontend
+    container_name: frontendContainer
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./Frontend:/app
+      - /app/node_modules
+    networks:
+      - ecommerce-app
+  userDb:
+    image: mysql:latest
+    container_name: userDb_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: user_db
+      MYSQL_USER: pr_user
+      MYSQL_PASSWORD: pr_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - userDb_data:/var/lib/mysql
+    networks:
+      - ecommerce-app
+  user:
+    build:
+      context: ./User
+      dockerfile: Dockerfile
+    container_name: userContainer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - userDb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://userDb:3306/user_db?useSSL=true&requireSSL=true
+      SPRING_DATASOURCE_USERNAME: pr_user
+      SPRING_DATASOURCE_PASSWORD: pr_password
+    volumes:
+      - ./USER/src:/app/src  # Mount the local 'src' directory into the container
+    networks:
+      - ecommerce-app
+  productDb:
+    image: mysql:latest
+    container_name: productDb_Container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: product_db
+      MYSQL_USER: pr_user
+      MYSQL_PASSWORD: pr_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - productDb_data:/var/lib/mysql
+    networks:
+      - ecommerce-app
+  product:
+    build:
+      context: ./Product
+      dockerfile: Dockerfile
+    container_name: productContainer
+    ports:
+      - "8081:8081"
+    depends_on:
+      - productDb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://productDb:3306/product_db?useSSL=true&requireSSL=true
+      SPRING_DATASOURCE_USERNAME: pr_user
+      SPRING_DATASOURCE_PASSWORD: pr_password
+    volumes:
+      - ./PRODUCT/src:/app/src  # Mount the local 'src' directory into the container
+    networks:
+      - ecommerce-app
+  warehouseDb:
+    image: mysql:latest
+    container_name: warehouseDb_Container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: warehouse_db
+      MYSQL_USER: pr_user
+      MYSQL_PASSWORD: pr_password
+    ports:
+      - "3308:3306"
+    volumes:
+      - warehouseDb_data:/var/lib/mysql
+    networks:
+      - ecommerce-app
+  warehouse:
+    build:
+      context: ./Warehouse
+      dockerfile: Dockerfile
+    container_name: warehouseContainer
+    ports:
+      - "8082:8082"
+    depends_on:
+      - warehouseDb
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://warehouseDb:3306/warehouse_db?useSSL=true&requireSSL=true
+      SPRING_DATASOURCE_USERNAME: pr_user
+      SPRING_DATASOURCE_PASSWORD: pr_password
+    volumes:
+      - ./WAREHOUSE/src:/app/src  # Mount the local 'src' directory into the container
+    networks:
+      - ecommerce-app
+volumes:
+  userDb_data:
+  productDb_data:
+  warehouseDb_data:
+networks:
+  ecommerce-app:
+    driver: bridge

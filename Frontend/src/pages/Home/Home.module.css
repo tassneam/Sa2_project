@@ -1,0 +1,57 @@
+.container {
+  padding: 3rem;
+  display: ruby-text;
+  border: 1px dashed black;
+  margin: 1rem;
+}
+
+.errorMsg,
+.notFound {
+  color: red;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.weather {
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: #0400ff;
+  text-align: center;
+}
+
+.logout {
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  width: 25%;
+  font-size: 2rem;
+  background: yellow;
+  cursor: pointer;
+}
+
+span {
+  font-size: 2rem;
+  color: black;
+  text-decoration: underline;
+}
+.createWarehouse {
+  display: block;
+  margin: 0 auto; /* This will center the button horizontally */
+  margin-top: 20px; /* Adjust this value as needed for spacing */
+  font-size: 1.5rem;
+  padding: 1rem;
+  width: 200px; /* Adjust width as needed */
+  background: green;
+  border: 1px solid gray;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0px 1px 3px 0px black;
+  cursor: pointer;
+}
+
+.createWarehouse:hover {
+  background-color: #45a049; /* Darker Green */
+}
+
