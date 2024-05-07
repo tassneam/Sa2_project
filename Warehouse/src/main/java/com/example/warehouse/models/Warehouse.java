@@ -11,9 +11,8 @@ public class Warehouse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, length = 11)
     private Integer ID;
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private String name;
-    @Column(unique = true)
     private String Location;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

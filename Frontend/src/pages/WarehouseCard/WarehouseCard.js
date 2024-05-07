@@ -43,8 +43,10 @@ export const WarehouseCard = ({ details, setLatestProductAddedToCart }) => {
     return (
         <div className={classes.card}>
             <h1>{name}</h1>
-            <p className={classes.location}>{location}</p>
-            <p>{capacity}</p>
+            <p className={classes.location}>
+                <h3>Location: {location}</h3>
+            </p>
+            <h3>Capacity: {capacity}</h3>
             <button className={classes.updateWarehouse} onClick={updateWarehouseHandler}>Update Warehouse</button>
             <p></p>
             <button className={classes.updateWarehouse} onClick={deleteWarehouseHandler}>delete Warehouse</button>

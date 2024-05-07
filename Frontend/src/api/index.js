@@ -21,9 +21,11 @@ export const deleteUser = id => usersServiceApi.delete(`/admin/deleteUser?id=${i
 
 // Product API interactions
 export const getAllProducts = () => productsServiceApi.get('/getAllProducts');
-export const createProduct = payload => productsServiceApi.post('/admin/createProduct', payload);
-export const updateProduct = (id, payload) => productsServiceApi.put(`/admin/updateProduct/${id}`, payload);
-export const deleteProduct = id => productsServiceApi.delete(`/admin/deleteProduct?id=${id}`);
+export const createProduct = payload => productsServiceApi.post('/createProduct', payload);
+export const updateProduct = (payload) => productsServiceApi.put(`/updateProduct`, payload);
+export const deleteProduct = id => productsServiceApi.delete(`/deleteProduct?ID=${id}`);
+export const getProductById = id => productsServiceApi.get(`/getById?ID=${id}`);
+export const getProductByName = name => productsServiceApi.get(`/getProductByName?Name=${name}`);
 
 // warehouse API interactions
 export const getWarehousesByUserId = userId => warehousesServiceApi.get(`/getWarehousesByUserId?userId=${userId}`);
@@ -49,7 +51,9 @@ const apis = {
     updateWarehouse,
     deleteWarehouse,
     getWarehouseById,
-    getWarehouseByName
+    getWarehouseByName,
+    getProductByName,
+    getProductById
 };
 
 export default apis;

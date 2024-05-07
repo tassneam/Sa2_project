@@ -55,9 +55,11 @@ export const Home = ({setIsAuthenticated}) => {
     }, []);
 
     const handleCreateWarehouse = () => {
-        history.push("/create-warehouse"); // Redirect to the create warehouse form
+        history.push("/create-warehouse");
     };
-
+    const handleCreateProduct = () => {
+        history.push("/create-product");
+    };
 
     // useEffect(() => {
     //     api
@@ -110,18 +112,24 @@ export const Home = ({setIsAuthenticated}) => {
             <span>Products</span>
             <div className={classes.container}>
                 {productError && <p className={classes.errorMsg}>{productError}</p>}
-                {!productError &&
-                    (products?.length > 0 ? (
-                        products.map(({_id, name, price, description}, index) => (
-                            <ProductCard
-                                key={index}
-                                details={{_id, name, price, description}}
-                                setLatestProductAddedToCart={setLatestProductAddedToCart}
-                            />
-                        ))
-                    ) : (
-                        <p className={classes.notFound}>No Products found.</p>
-                    ))}
+                {!productError && (
+                    <>
+                        {products?.length > 0 ? (
+                            products.map(({_id, name, description, stock}, index) => (
+                                <ProductCard
+                                    key={index}
+                                    details={{_id, name, description, stock}}
+                                    setLatestProductAddedToCart={setLatestProductAddedToCart}
+                                />
+                            ))
+                        ) : (
+                            <p className={classes.notFound}>No Product found.</p>
+                        )} <br/>
+                        <button className={classes.createWarehouse} onClick={handleCreateProduct}>
+                            Create Product
+                        </button>
+                    </>
+                )}
             </div>
             <button className={classes.logout} onClick={logoutHandler}>
                 Logout

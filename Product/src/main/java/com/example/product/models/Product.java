@@ -10,8 +10,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(length = 11, nullable = false)
     private Integer ID;
-    @Column(nullable = false)
-    private String Name;
+    @Column(nullable = false,unique = true)
+    private String name;
     @Column(columnDefinition = "TEXT")
     private String Description;
     @Column(nullable = false, length = 11)
