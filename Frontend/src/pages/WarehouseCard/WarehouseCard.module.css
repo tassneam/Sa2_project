@@ -8,7 +8,8 @@
     border: 1px solid black;
     height: 20rem;
     width: 13rem;
-  }
+    background-color: #c3d7ea;
+}
   
 .price {
     color: grey;
@@ -20,7 +21,7 @@
     outline: 0;
     padding: 12px;
     color: white;
-    background-color: blueviolet;
+    background-color: #045e9a;
     ;
     text-align: center;
     cursor: pointer;

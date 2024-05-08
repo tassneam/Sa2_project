@@ -1,7 +1,7 @@
 /* Register.module.css */
 .formContainer {
     margin: 0 auto;
-    background-color: #f3f3f3;
+    background-color: #d5d5d5;
     padding: 3rem;
     border: 1px solid black;
     border-radius: 5px;
@@ -34,7 +34,7 @@
     font-size: 1.6rem;
     padding: 1rem;
     width: 100%;
-    background: green;
+    background: #003e80;
     border: none;
     border-radius: 4px;
     color: white;

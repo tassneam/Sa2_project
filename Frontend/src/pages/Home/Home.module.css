@@ -27,8 +27,9 @@
   padding: 0.5rem 1rem;
   width: 25%;
   font-size: 2rem;
-  background: yellow;
+  background: #003e80;
   cursor: pointer;
+  color: #ffffff;
 }
 
 span {
@@ -43,7 +44,7 @@ span {
   font-size: 1.5rem;
   padding: 1rem;
   width: 200px; /* Adjust width as needed */
-  background: green;
+  background: #003e80;
   border: 1px solid gray;
   border-radius: 10px;
   color: white;
@@ -52,6 +53,6 @@ span {
 }
 
 .createWarehouse:hover {
-  background-color: #45a049; /* Darker Green */
+  background-color: #045e9a; /* Darker Green */
 }
 
