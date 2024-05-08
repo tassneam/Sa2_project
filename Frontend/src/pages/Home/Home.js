@@ -10,8 +10,8 @@ export const Home = ({setIsAuthenticated}) => {
     const history = useHistory();
     const [products, setProducts] = useState([]);
     const [productError, setProductError] = useState(false);
-    const [warehouses, setWarehouses] = useState([]); // Updated state variable for warehouses
-    const [warehouseError, setWarehouseError] = useState(false); // Updated state variable for warehouse error
+    const [warehouses, setWarehouses] = useState([]);
+    const [warehouseError, setWarehouseError] = useState(false);
     // const [weather, setWeather] = useState("");
     // const [weatherError, setWeatherError] = useState(false);
     const [latestProductAddedToCart, setLatestProductAddedToCart] = useState();

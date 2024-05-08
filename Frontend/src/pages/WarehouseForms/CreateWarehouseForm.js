@@ -29,7 +29,6 @@ export const CreateWarehouseForm = () => {
             const response = await api.createWarehouse(inputs);
             if (response.data && response.data.status) {
                 console.log('Warehouse creation success:', response.data.message);
-                // Redirect to desired page after successful warehouse creation
                 history.push(`/products`);
             } else {
                 throw new Error(response.data.message || 'Failed to create warehouse');

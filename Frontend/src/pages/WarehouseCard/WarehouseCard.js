@@ -14,7 +14,6 @@ export const WarehouseCard = ({ details, setLatestProductAddedToCart }) => {
             const response = await api.getWarehouseByName(name);
 
 
-            // Redirect to the update warehouse form with the warehouse ID as a parameter
             history.push(`/update-warehouse/${response.data.id}`);
         } catch (err) {
             setError(err?.response?.data?.message || 'Error while updating warehouse!');
@@ -30,9 +29,7 @@ export const WarehouseCard = ({ details, setLatestProductAddedToCart }) => {
             // Refresh the page after successful warehouse deletion
             window.location.reload();
 
-            // Alternatively, if you want to redirect to another page after deletion,
-            // you can use history.push('/desired-page') as you did before
-            // history.push('/products');
+
 
         } catch (err) {
             setError(err.message || 'An error occurred during warehouse delete.');

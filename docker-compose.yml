@@ -41,7 +41,7 @@ services:
       SPRING_DATASOURCE_USERNAME: pr_user
       SPRING_DATASOURCE_PASSWORD: pr_password
     volumes:
-      - ./USER/src:/app/src  # Mount the local 'src' directory into the container
+      - ./USER/src:/app/src
     networks:
       - ecommerce-app
   productDb:
@@ -73,7 +73,7 @@ services:
       SPRING_DATASOURCE_USERNAME: pr_user
       SPRING_DATASOURCE_PASSWORD: pr_password
     volumes:
-      - ./PRODUCT/src:/app/src  # Mount the local 'src' directory into the container
+      - ./PRODUCT/src:/app/src
     networks:
       - ecommerce-app
   warehouseDb:
@@ -105,7 +105,7 @@ services:
       SPRING_DATASOURCE_USERNAME: pr_user
       SPRING_DATASOURCE_PASSWORD: pr_password
     volumes:
-      - ./WAREHOUSE/src:/app/src  # Mount the local 'src' directory into the container
+      - ./WAREHOUSE/src:/app/src
     networks:
       - ecommerce-app
 volumes:

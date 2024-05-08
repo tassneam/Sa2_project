@@ -3,10 +3,10 @@ import { Login } from "./auth/Login.js";
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Home } from "./pages/Home/Home.js";
 import { Register } from "./auth/Register.js";
-import { CreateWarehouseForm } from "./pages/WarehouseForms/CreateWarehouseForm.js"; // Import the CreateProductForm component
-import { UpdateWarehouseForm } from "./pages/WarehouseForms/UpdateWarehouseForm.js"; // Import the CreateProductForm component
-import { UpdateProductForm } from "./pages/ProductForms/UpdateProductForm.js"; // Import the CreateProductForm component
-import { CreateProductForm } from "./pages/ProductForms/CreateProductForm.js"; // Import the CreateProductForm component
+import { CreateWarehouseForm } from "./pages/WarehouseForms/CreateWarehouseForm.js";
+import { UpdateWarehouseForm } from "./pages/WarehouseForms/UpdateWarehouseForm.js";
+import { UpdateProductForm } from "./pages/ProductForms/UpdateProductForm.js";
+import { CreateProductForm } from "./pages/ProductForms/CreateProductForm.js";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("isAuthenticated"));

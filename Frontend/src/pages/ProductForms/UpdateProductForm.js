@@ -11,7 +11,6 @@ export const UpdateProductForm = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        // Fetch warehouse details when component mounts
         console.log(id)
         getProductDetails();
     }, []);

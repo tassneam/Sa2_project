@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom"; // Import useHistory hook
+import { useHistory } from "react-router-dom";
 import classes from './ProductCard.module.css';
 import api, {getProductByName} from "../../api";
 
